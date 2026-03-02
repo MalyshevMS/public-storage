@@ -8,7 +8,7 @@ public class HomeMiddleware
     private readonly RequestDelegate next;
     private readonly string uploadPath;
 
-    public HomeMiddleware(RequestDelegate next, IUploadService uploadService)
+    public HomeMiddleware(RequestDelegate next, UploadService uploadService)
     {
         this.next = next;
         this.uploadPath = uploadService.GetUploadPath();

@@ -1,6 +1,6 @@
-namespace public_storage.Services;
+// namespace public_storage.Services;
 
-public interface IUploadService
-{
-    string GetUploadPath();
-}
+// public interface IUploadService
+// {
+//     string GetUploadPath();
+// }

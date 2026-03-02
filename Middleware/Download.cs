@@ -7,7 +7,7 @@ public class DownloadMiddleware
     private readonly RequestDelegate next;
     private readonly string uploadPath;
 
-    public DownloadMiddleware(RequestDelegate next, IUploadService uploadService)
+    public DownloadMiddleware(RequestDelegate next, UploadService uploadService)
     {
         this.next = next;
         this.uploadPath = uploadService.GetUploadPath();

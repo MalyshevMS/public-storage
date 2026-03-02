@@ -3,7 +3,7 @@ using public_storage.Configuration;
 
 namespace public_storage.Services;
 
-class UploadService : IUploadService
+public class UploadService
 {
     private readonly string _rootPath;
 
