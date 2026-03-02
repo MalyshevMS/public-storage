@@ -22,6 +22,7 @@ public class DownloadMiddleware
 
         if (!File.Exists(filePath))
         {
+            res.ContentType = "text/html; charset=utf-8";
             res.StatusCode = 404;
             await res.WriteAsync("<center>404, File not found</center>");
             return;

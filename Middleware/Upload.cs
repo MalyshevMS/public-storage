@@ -20,6 +20,7 @@ public class UploadMiddleware
         if (!req.HasFormContentType)
         {
             res.StatusCode = 400;
+            res.ContentType = "text/html; charset=utf-8";
             await res.WriteAsync("<center>Ivalid Form!</center>");
             return;
         }
@@ -29,6 +30,7 @@ public class UploadMiddleware
 
         if (file == null || file.Length == 0)
         {
+            res.ContentType = "text/html; charset=utf-8";
             res.StatusCode = 400;
             await res.WriteAsync("<center>No file selected or empty file!</center>");
             return;
