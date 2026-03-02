@@ -1,6 +1,6 @@
 namespace public_storage.Services;
 
-interface IUploadService
+public interface IUploadService
 {
     string GetUploadPath();
 }

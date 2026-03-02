@@ -6,15 +6,16 @@ namespace public_storage.Middleware;
 public class HomeMiddleware
 {
     private readonly RequestDelegate next;
+    private readonly string uploadPath;
 
-    public HomeMiddleware(RequestDelegate next)
+    public HomeMiddleware(RequestDelegate next, IUploadService uploadService)
     {
         this.next = next;
+        this.uploadPath = uploadService.GetUploadPath();
     }
 
     public async Task InvokeAsync(HttpContext ctx)
     {
-        var uploadPath = ctx.RequestServices.GetService<IUploadService>()!.GetUploadPath();
         var files = Directory.GetFiles(uploadPath).Select(Path.GetFileName);
 
         var html = new StringBuilder();

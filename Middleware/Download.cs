@@ -5,17 +5,18 @@ namespace public_storage.Middleware;
 public class DownloadMiddleware
 {
     private readonly RequestDelegate next;
+    private readonly string uploadPath;
 
-    public DownloadMiddleware(RequestDelegate next)
+    public DownloadMiddleware(RequestDelegate next, IUploadService uploadService)
     {
         this.next = next;
+        this.uploadPath = uploadService.GetUploadPath();
     }
 
     public async Task InvokeAsync(HttpContext ctx)
     {
         var req = ctx.Request;
         var res = ctx.Response;
-        var uploadPath = ctx.RequestServices.GetService<IUploadService>()!.GetUploadPath();
 
         var fileName = req.Path.Value!.Split("/").Last();
         var filePath = Path.Combine(uploadPath, fileName);
