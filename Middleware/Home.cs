@@ -25,6 +25,7 @@ public class HomeMiddleware
 
         <form action="/upload" method="post" enctype="multipart/form-data">
             <input type="file" name="file"/><br>
+            <input type="password" name="pass"/><br>
             <button type="submit">Upload</button>
         </form>
 

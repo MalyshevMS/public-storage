@@ -7,7 +7,7 @@ builder.WebHost.UseUrls("http://0.0.0.0:5000");
 
 builder.Services.Configure<UploadOptions>(builder.Configuration.GetSection("Storage"));
 
-builder.Services.AddTransient<UploadService>();
+builder.Services.AddSingleton<UploadService>();
 
 var app = builder.Build();
 

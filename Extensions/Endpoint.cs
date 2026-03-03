@@ -21,7 +21,10 @@ public static class EndpointExtension
     public static IApplicationBuilder MapUpload(this IApplicationBuilder app)
     {
         return app.Map("/upload", 
-            builder => builder.UseMiddleware<UploadMiddleware>()
+            builder => {
+                builder.UseMiddleware<PasswordMiddleware>("123");
+                builder.UseMiddleware<UploadMiddleware>();
+            }
         );
     }
 
