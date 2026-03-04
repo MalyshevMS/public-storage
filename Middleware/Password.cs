@@ -1,3 +1,5 @@
+using public_storage.Services;
+
 namespace public_storage.Middleware;
 
 public class PasswordMiddleware
@@ -5,10 +7,10 @@ public class PasswordMiddleware
     private readonly RequestDelegate next;
     private readonly string password;
 
-    public PasswordMiddleware(RequestDelegate next, string password)
+    public PasswordMiddleware(RequestDelegate next, PasswordService passwordService)
     {
         this.next = next;
-        this.password = password;
+        this.password = passwordService.GetPassword();
     }
 
     public async Task InvokeAsync(HttpContext ctx)

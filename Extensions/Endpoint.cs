@@ -22,7 +22,7 @@ public static class EndpointExtension
     {
         return app.Map("/upload", 
             builder => {
-                builder.UseMiddleware<PasswordMiddleware>("123");
+                builder.UseMiddleware<PasswordMiddleware>();
                 builder.UseMiddleware<UploadMiddleware>();
             }
         );
